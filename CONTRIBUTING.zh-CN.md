@@ -15,7 +15,7 @@
 ### 1. 克隆并安装依赖
 
 ```bash
-git clone https://github.com/your-org/audio-translate-input.git
+git clone https://github.com/muwe/audio_translater_input.git
 cd audio-translate-input/app_demo
 flutter pub get
 ```
