@@ -157,9 +157,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> with TickerProvider
                     itemCount: _getSteps(context).length,
                     itemBuilder: (context, index) {
                       final step = _getSteps(context)[index];
-                      return Center(
+                      return SingleChildScrollView(
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 36),
+                          padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
