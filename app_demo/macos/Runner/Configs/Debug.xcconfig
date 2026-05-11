@@ -1,2 +1,7 @@
 #include "../../Flutter/Flutter-Debug.xcconfig"
 #include "Warnings.xcconfig"
+
+// Local development: disable mandatory code signing.
+// For release builds, set DEVELOPMENT_TEAM in AppInfo.xcconfig or via Xcode.
+CODE_SIGNING_REQUIRED = NO
+CODE_SIGNING_ALLOWED = NO
