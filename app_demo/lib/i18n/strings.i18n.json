@@ -1,0 +1,204 @@
+{
+  "status": {
+    "idle": "Press Fn to Record",
+    "translating": "🌐 Translating... (Release Fn to stop)",
+    "listening": "🎤 Listening... (Release Fn to stop)",
+    "network_disconnected_title": "🔴 No Network Connection",
+    "network_disconnected_desc": "Please check your network connection",
+    "network_disconnected_short": "No Network",
+    "accessibility_permission": "Accessibility permission required for auto-paste, please grant it in system settings",
+    "mic_permission": "Microphone unauthorized",
+    "processing": "✨ Processing...",
+    "paste_success": "✅ Pasting successful",
+    "paste_success_times": "✅ [ASR: ${asrSec}s | LLM: ${llmSec}s]",
+    "mode_recording": "Recording",
+    "mode_translating": "Translating",
+    "recording_failed": "Recording failed to start",
+    "no_voice_detected": "No voice detected",
+    "processing_short": "Processing"
+  },
+  "common": {
+    "min_sec": "${min}m ${sec}s",
+    "hour_min": "${hour}h ${min}m",
+    "n_minutes": "${n} min",
+    "n_hours": "${n} hr ${min} min"
+  },
+  "locales": {
+    "en": "English",
+    "zhHans": "Simplified Chinese",
+    "zhHant": "Traditional Chinese",
+    "ja": "Japanese",
+    "de": "German",
+    "es": "Spanish"
+  },
+  "settings": {
+    "title": "App Settings",
+    "subtitle": "Customize your typing experience.",
+    "ui_settings": {
+      "title": "UI Settings",
+      "app_language": {
+        "title": "App Language",
+        "subtitle": "Change the overall application language"
+      },
+      "font": {
+        "title": "Display Font",
+        "subtitle": "Globally change the text display font"
+      }
+    },
+    "system_settings": {
+      "title": "System Settings",
+      "startup": {
+        "title": "Launch at Startup",
+        "subtitle": "Automatically run in background after login, always ready"
+      },
+      "backend": {
+        "title": "Backend Node",
+        "subtitle": "US Ultra-fast Node (Groq) or CN Compliant Node (SiliconFlow)",
+        "us": "US/Europe",
+        "cn": "China"
+      }
+    },
+    "hotkeys": {
+      "title": "Hotkeys & Triggers",
+      "refine": {
+        "title": "Refine Mode (Toggle)",
+        "subtitle": "Bind a global toggle key if you don't want to hold native Fn"
+      },
+      "translate": {
+        "title": "Translate Mode (Toggle)",
+        "subtitle": "Speak and immediately translate to target language"
+      },
+      "click_to_set": "Click to set hotkey",
+      "cancel": "Cancel",
+      "record_title": "Record ${title} Hotkey",
+      "record_desc": "Press your desired key combination directly on the keyboard..."
+    },
+    "translation": {
+      "title": "Translation Strategy",
+      "target_lang": {
+        "title": "Target Language",
+        "subtitle": "Default language to translate into when trigger translate mode"
+      }
+    },
+    "target_languages": {
+      "en": "English",
+      "ja": "Japanese",
+      "ko": "Korean",
+      "fr": "French",
+      "de": "German",
+      "ru": "Russian",
+      "es": "Spanish",
+      "it": "Italian",
+      "pt": "Portuguese",
+      "nl": "Dutch",
+      "ar": "Arabic",
+      "tr": "Turkish",
+      "sv": "Swedish",
+      "hi": "Hindi",
+      "th": "Thai",
+      "vi": "Vietnamese",
+      "id": "Indonesian",
+      "zh_Hans": "Simplified Chinese",
+      "zh_Hant": "Traditional Chinese"
+    }
+  },
+  "dashboard": {
+    "chars_unit": "chars",
+    "unlimited": "Unlimited",
+    "sidebar": {
+      "home": "Home",
+      "history": "History",
+      "settings": "Settings"
+    },
+    "home": {
+      "greeting": "Hello, Creator",
+      "subtitle": "Today's focus, flow is ready",
+      "guide": {
+        "title": "Quick Start Guide",
+        "voice_input": {
+          "title": "Click Fn for Voice Input",
+          "desc": "Hold Fn in any text box to speak, release to automatically refine and paste."
+        },
+        "realtime_translate": {
+          "title": "Shift + Fn for Real-time Translation",
+          "desc": "Hold Shift and Fn for translation."
+        },
+        "smart_format": {
+          "title": "Smart Formatting Assistant",
+          "desc": "The system will automatically record your frequent phrases and writing style."
+        }
+      },
+      "stats": {
+        "focus_performance": "Focus Performance",
+        "hours": "${hours} Hours",
+        "days": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "goal_reached": "Today's Inspiration",
+        "processed_words": "Processed Words ${words}"
+      }
+    }
+  },
+  "history": {
+    "title": "Creation History",
+    "time_saved": "Accumulated ${time} of typing time saved for you.",
+    "empty": "No records yet\nPress Fn to start your first voice transcription",
+    "mode_translate": "Foreign Translation",
+    "mode_refine": "Native Refinement",
+    "asr_label": "🎙️ Voice Recognition: ",
+    "llm_label": "✨ Smart Refinement: ",
+    "seconds": "${seconds} seconds",
+    "minutes": "${minutes} minutes",
+    "period": {
+      "today": "Today",
+      "week": "This Week",
+      "month": "This Month",
+      "all": "All Time"
+    },
+    "kpi": {
+      "usage_time": "Usage Time",
+      "chars": "Characters",
+      "time_saved": "Time Saved",
+      "requests": "Total Requests",
+      "refine": "Refinements",
+      "translate": "Translations"
+    }
+  },
+  "onboarding": {
+    "step1_title": "Speak Naturally, Write Perfectly",
+    "step1_subtitle": "Hold Fn to record\nRelease to auto-refine and paste to active window",
+    "step1_action": "Next",
+    "step2_title": "Authorize Microphone",
+    "step2_action": "Grant System Permission",
+    "step3_title": "Enable Accessibility",
+    "step3_subtitle": "For seamless input\nPlease enable accessibility for Audio Translate Input in System Preferences > Security & Privacy",
+    "step3_action": "Verify System Permission",
+    "step4_title": "Try It Out",
+    "step4_subtitle": "All set! Hold Fn and say something\nPrepare for a whole new efficiency revolution",
+    "step4_action": "Start Journey",
+    "skip": "Skip Guide",
+    "mic_permission_subtitle": "Audio Translate Input needs microphone permission\nto convert your voice into precise text",
+    "complete_trial": "Complete Trial",
+    "hold_fn_hint": "Hold Fn key and say something...",
+    "listening": "Listening... (Please speak freely)",
+    "refining": "Refining...",
+    "trial_success": "Trial successful! This is the magic of Audio Translate Input.",
+    "click_to_simulate": "(You can click this box to simulate a key press)",
+    "accessibility_warning": "Accessibility permission not granted. Please enable Audio Translate Input in the system settings dialog that appears."
+  },
+  "vocab": {
+    "title": "Personal Dictionary",
+    "subtitle": "Teach AI your preferred expressions",
+    "add_title": "Add Custom Expression",
+    "spoken_hint": "What you say (spoken form)",
+    "written_hint": "What you want written (written form)",
+    "add_btn": "Add",
+    "empty": "No custom expressions yet"
+  }
+}

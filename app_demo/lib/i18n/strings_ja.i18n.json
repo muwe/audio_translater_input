@@ -1,0 +1,204 @@
+{
+  "status": {
+    "idle": "Fnを押して録音",
+    "translating": "🌐 翻訳中... (Fnを離して停止)",
+    "listening": "🎤 リスニング中... (Fnを離して停止)",
+    "network_disconnected_title": "🔴 ネットワーク未接続",
+    "network_disconnected_desc": "ネットワーク接続をご確認ください",
+    "network_disconnected_short": "ネットワークなし",
+    "accessibility_permission": "自動貼り付けにはアクセシビリティ権限が必要です。システム設定で許可してください",
+    "mic_permission": "マイク未認証",
+    "processing": "✨ 処理中...",
+    "paste_success": "✅ 貼り付け成功",
+    "paste_success_times": "✅ [ASR: ${asrSec}s | LLM: ${llmSec}s]",
+    "mode_recording": "録音",
+    "mode_translating": "翻訳",
+    "recording_failed": "録音開始に失敗しました",
+    "no_voice_detected": "音声が検出されません",
+    "processing_short": "処理中"
+  },
+  "common": {
+    "min_sec": "${min}分 ${sec}秒",
+    "hour_min": "${hour}時間 ${min}分",
+    "n_minutes": "${n} 分",
+    "n_hours": "${n} 時間 ${min} 分"
+  },
+  "locales": {
+    "en": "英語",
+    "zhHans": "簡体字中国語",
+    "zhHant": "繁体字中国語",
+    "ja": "日本語",
+    "de": "ドイツ語",
+    "es": "スペイン語"
+  },
+  "settings": {
+    "title": "アプリ設定",
+    "subtitle": "独自のタイピング体験をカスタマイズ。",
+    "ui_settings": {
+      "title": "UI設定",
+      "app_language": {
+        "title": "アプリの言語",
+        "subtitle": "アプリケーション全体の言語を変更する"
+      },
+      "font": {
+        "title": "表示フォント",
+        "subtitle": "テキスト表示フォントをグローバルに変更します"
+      }
+    },
+    "system_settings": {
+      "title": "システム設定",
+      "startup": {
+        "title": "スタートアップ起動",
+        "subtitle": "ログイン後にバックグラウンドで自動実行され、常に待機します"
+      },
+      "backend": {
+        "title": "バックエンドノード",
+        "subtitle": "米国超高速ノード（Groq）または国内準拠ノード（SiliconFlow）",
+        "us": "欧米地域 (US/Europe)",
+        "cn": "中国国内 (China)"
+      }
+    },
+    "hotkeys": {
+      "title": "ホットキーとトリガー",
+      "refine": {
+        "title": "リファインモード（トグル）",
+        "subtitle": "Fnキーを押し続けたくない場合は、グローバルトグルキーをバインドできます"
+      },
+      "translate": {
+        "title": "翻訳モード（トグル）",
+        "subtitle": "話すとすぐにターゲット言語に翻訳して出力されます"
+      },
+      "click_to_set": "クリックして設定",
+      "cancel": "キャンセル",
+      "record_title": "${title}のホットキーを記録",
+      "record_desc": "ご希望のキーの組み合わせを直接キーボードで押してください..."
+    },
+    "translation": {
+      "title": "翻訳エンジンの戦略",
+      "target_lang": {
+        "title": "ターゲット言語の選択",
+        "subtitle": "翻訳モードをトリガーした際のデフォルトの翻訳先言語"
+      }
+    },
+    "target_languages": {
+      "en": "英語",
+      "ja": "日本語",
+      "ko": "韓国語",
+      "fr": "フランス語",
+      "de": "ドイツ語",
+      "ru": "ロシア語",
+      "es": "スペイン語",
+      "it": "イタリア語",
+      "pt": "ポルトガル語",
+      "nl": "オランダ語",
+      "ar": "アラビア語",
+      "tr": "トルコ語",
+      "sv": "スウェーデン語",
+      "hi": "ヒンディー語",
+      "th": "タイ語",
+      "vi": "ベトナム語",
+      "id": "インドネシア語",
+      "zh_Hans": "簡体字中国語",
+      "zh_Hant": "繁体字中国語"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "home": "ホーム",
+      "history": "履歴",
+      "settings": "設定"
+    },
+    "home": {
+      "greeting": "こんにちは、クリエイター",
+      "subtitle": "今日のフォーカス、フローの準備ができました",
+      "guide": {
+        "title": "クイックスタートガイド",
+        "voice_input": {
+          "title": "Fnで音声入力",
+          "desc": "テキストボックスでFnを長押しして話し、離すと自動的にリファインされて貼り付けられます。"
+        },
+        "realtime_translate": {
+          "title": "Shift + Fnでリアルタイム翻訳",
+          "desc": "ShiftとFnを長押しして翻訳します。"
+        },
+        "smart_format": {
+          "title": "スマートフォーマットアシスタント",
+          "desc": "システムは頻繁に使用するフレーズやライティングスタイルを自動的に記録します。"
+        }
+      },
+      "stats": {
+        "focus_performance": "フォーカス実績",
+        "hours": "${hours} 時間",
+        "days": [
+          "月",
+          "火",
+          "水",
+          "木",
+          "金",
+          "土",
+          "日"
+        ],
+        "goal_reached": "今日のインスピレーション",
+        "processed_words": "処理された単語数 ${words}"
+      }
+    },
+    "chars_unit": "文字",
+    "unlimited": "無制限"
+  },
+  "history": {
+    "title": "作成履歴",
+    "time_saved": "合計 ${time} のタイピング時間を節約しました。",
+    "empty": "記録がありません\nFnキーを押して最初の音声文字起こしを開始してください",
+    "mode_translate": "外国語翻訳",
+    "mode_refine": "母国語リファイン",
+    "asr_label": "🎙️ 音声認識: ",
+    "llm_label": "✨ スマートリファイン: ",
+    "seconds": "${seconds} 秒",
+    "minutes": "${minutes} 分",
+    "period": {
+      "today": "今日",
+      "week": "今週",
+      "month": "今月",
+      "all": "累計"
+    },
+    "kpi": {
+      "usage_time": "利用時間",
+      "chars": "生成文字数",
+      "time_saved": "節約時間",
+      "requests": "リクエスト数",
+      "refine": "リファイン回数",
+      "translate": "翻訳回数"
+    }
+  },
+  "onboarding": {
+    "step1_title": "自然に話して、完璧に書く",
+    "step1_subtitle": "Fn を長押しして録音開始\n離すと自動的に校正してアクティブウィンドウに貼り付け",
+    "step1_action": "次へ",
+    "step2_title": "マイクを許可",
+    "step2_action": "システム権限を許可",
+    "step3_title": "アクセシビリティを有効化",
+    "step3_subtitle": "シームレスな入力のため\nシステム環境設定で Audio Translate Input のアクセシビリティを有効にしてください",
+    "step3_action": "システム権限を確認",
+    "step4_title": "実践練習",
+    "step4_subtitle": "準備完了！Fnを長押しして何か話してみてください\n新しい効率革命を体験しましょう",
+    "step4_action": "旅を始める",
+    "skip": "ガイドをスキップ",
+    "mic_permission_subtitle": "Audio Translate Input は音声を正確なテキストに変換するために\nマイクの許可が必要です",
+    "complete_trial": "体験を完了",
+    "hold_fn_hint": "Fn キーを押しながら何か話してください...",
+    "listening": "聞いています...（自由にお話しください）",
+    "refining": "校正中...",
+    "trial_success": "体験成功！これが Audio Translate Input の魔法です。",
+    "click_to_simulate": "（このボックスをクリックしてキー押下をシミュレートできます）",
+    "accessibility_warning": "アクセシビリティ権限が付与されていません。表示されるシステム設定ダイアログで Audio Translate Input を有効にしてください。"
+  },
+  "vocab": {
+    "title": "マイ辞書",
+    "subtitle": "AIにあなたの好みの表現を教える",
+    "add_title": "カスタム表現を追加",
+    "spoken_hint": "あなたが言うこと（話し言葉）",
+    "written_hint": "書きたいこと（書き言葉）",
+    "add_btn": "追加",
+    "empty": "カスタム表現はまだありません"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "status": {
+    "idle": "按 Fn 录音",
+    "translating": "🌐 翻译中... (松开 Fn 停止)",
+    "listening": "🎤 聆听中... (松开 Fn 停止)",
+    "network_disconnected_title": "🔴 网络未连接",
+    "network_disconnected_desc": "请检查网络连接",
+    "network_disconnected_short": "网络未连接",
+    "accessibility_permission": "自动粘贴需辅助功能权限，请在系统设置中授予",
+    "mic_permission": "麦克风未授权",
+    "processing": "✨ 处理中...",
+    "paste_success": "✅ 粘贴成功",
+    "paste_success_times": "✅ [ASR: ${asrSec}s | LLM: ${llmSec}s]",
+    "mode_recording": "录音",
+    "mode_translating": "翻译",
+    "recording_failed": "录音启动失败",
+    "no_voice_detected": "未检测到人声",
+    "processing_short": "处理中"
+  },
+  "common": {
+    "min_sec": "${min}分 ${sec}秒",
+    "hour_min": "${hour}时 ${min}分",
+    "n_minutes": "${n} 分钟",
+    "n_hours": "${n} 小时 ${min} 分"
+  },
+  "locales": {
+    "en": "英语",
+    "zhHans": "简体中文",
+    "zhHant": "繁体中文",
+    "ja": "日语",
+    "de": "德语",
+    "es": "西班牙语"
+  },
+  "settings": {
+    "title": "应用设置",
+    "subtitle": "定制属于你自己的输入体验。",
+    "ui_settings": {
+      "title": "界面设置",
+      "app_language": {
+        "title": "应用界面语言",
+        "subtitle": "切换应用程序的整体语言"
+      },
+      "font": {
+        "title": "显示字体",
+        "subtitle": "全局更改所有的文本显示字体"
+      }
+    },
+    "system_settings": {
+      "title": "系统设置",
+      "startup": {
+        "title": "开机自动启动",
+        "subtitle": "在登录系统后自动在后台运行，随时待命"
+      },
+      "backend": {
+        "title": "后端处理节点",
+        "subtitle": "欧美极速节点 (Groq) 或 国内合规节点 (硅基流动)",
+        "us": "欧美地区 (US/Europe)",
+        "cn": "中国国内 (China)"
+      }
+    },
+    "hotkeys": {
+      "title": "快捷键与触发",
+      "refine": {
+        "title": "基础优化模式 (Toggle)",
+        "subtitle": "如果不想长按原生 Fn 键，可以在此绑定一个全局切换按键"
+      },
+      "translate": {
+        "title": "全局翻译模式 (Toggle)",
+        "subtitle": "说话即刻翻译为目标外语输出"
+      },
+      "click_to_set": "点击设置快捷键",
+      "cancel": "取消",
+      "record_title": "录制 ${title} 快捷键",
+      "record_desc": "请直接在键盘上按下您想要的组合键..."
+    },
+    "translation": {
+      "title": "翻译引擎策略",
+      "target_lang": {
+        "title": "目标外语选择",
+        "subtitle": "当触发翻译模式时，默认被翻译成的语种"
+      }
+    },
+    "target_languages": {
+      "en": "英语",
+      "ja": "日语",
+      "ko": "韩语",
+      "fr": "法语",
+      "de": "德语",
+      "ru": "俄语",
+      "es": "西班牙语",
+      "it": "意大利语",
+      "pt": "葡萄牙语",
+      "nl": "荷兰语",
+      "ar": "阿拉伯语",
+      "tr": "土耳其语",
+      "sv": "瑞典语",
+      "hi": "印地语",
+      "th": "泰语",
+      "vi": "越南语",
+      "id": "印尼语",
+      "zh_Hans": "简体中文",
+      "zh_Hant": "繁体中文"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "home": "首页",
+      "history": "历史",
+      "settings": "设置"
+    },
+    "home": {
+      "greeting": "你好，创作者",
+      "subtitle": "今日聚焦，心流已就绪",
+      "guide": {
+        "title": "快速上手指南",
+        "voice_input": {
+          "title": "单击 Fn 语音输入",
+          "desc": "在任何文本框中按住 Fn 说话，松开后自动润色并粘贴。"
+        },
+        "realtime_translate": {
+          "title": "Shift + Fn 实时翻译",
+          "desc": "按住 Shift 再按住 Fn 进行中英互译。"
+        },
+        "smart_format": {
+          "title": "智能排版助手",
+          "desc": "系统会自动记录你的高频短语和写作风格。"
+        }
+      },
+      "stats": {
+        "focus_performance": "专注表现",
+        "hours": "${hours} 小时",
+        "days": [
+          "周一",
+          "周二",
+          "周三",
+          "周四",
+          "周五",
+          "周六",
+          "周日"
+        ],
+        "goal_reached": "今日灵感达成",
+        "processed_words": "处理字数 ${words}"
+      }
+    },
+    "chars_unit": "字",
+    "unlimited": "无限"
+  },
+  "history": {
+    "title": "历史创作记录",
+    "time_saved": "累计为您挽回了 ${time} 的打字时间。",
+    "empty": "暂无记录\n按 Fn 键开始你的第一次语音转写",
+    "mode_translate": "外语翻译",
+    "mode_refine": "母语润色",
+    "asr_label": "🎙️ 录音识别: ",
+    "llm_label": "✨ 智能润色: ",
+    "seconds": "${seconds} 秒",
+    "minutes": "${minutes} 分钟",
+    "period": {
+      "today": "今日",
+      "week": "本周",
+      "month": "本月",
+      "all": "累计"
+    },
+    "kpi": {
+      "usage_time": "使用时长",
+      "chars": "生成字数",
+      "time_saved": "节省时间",
+      "requests": "总请求数",
+      "refine": "润色次数",
+      "translate": "翻译次数"
+    }
+  },
+  "onboarding": {
+    "step1_title": "自然说话，完美书写",
+    "step1_subtitle": "只需长按 Fn 开始录音\n松开后自动润色并粘贴至活动窗口",
+    "step1_action": "下一步",
+    "step2_title": "授权麦克风",
+    "step2_action": "授权系统权限",
+    "step3_title": "开启辅助功能",
+    "step3_subtitle": "为了体验「无感输入」\n请在系统安全与隐私中为 Audio Translate Input 开启辅助功能",
+    "step3_action": "验证系统权限",
+    "step4_title": "实战演练",
+    "step4_subtitle": "一切就绪！现在请长按 Fn 随便说一句话\n准备迎接全新的效率革命",
+    "step4_action": "开始旅程",
+    "skip": "跳过向导",
+    "mic_permission_subtitle": "Audio Translate Input 需要麦克风权限\n才能将您的语音转换为精准文字",
+    "complete_trial": "完成试用",
+    "hold_fn_hint": "按住 Fn 键说点什么...",
+    "listening": "聆听中...（请自由说话）",
+    "refining": "润色中...",
+    "trial_success": "试用成功！这就是 Audio Translate Input 的魔力。",
+    "click_to_simulate": "（您可以点击此区域模拟按键）",
+    "accessibility_warning": "辅助功能权限未授予。请在弹出的系统设置对话框中启用 Audio Translate Input。"
+  },
+  "vocab": {
+    "title": "个人词典",
+    "subtitle": "教 AI 学会你的习惯用语",
+    "add_title": "添加自定义表达",
+    "spoken_hint": "你说的话（口语形式）",
+    "written_hint": "你想写的（书面形式）",
+    "add_btn": "添加",
+    "empty": "还没有自定义表达"
+  }
+}

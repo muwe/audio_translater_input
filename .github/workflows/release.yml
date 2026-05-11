@@ -1,0 +1,203 @@
+name: Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  # ========== 第一阶段：Flutter 测试 ==========
+  test:
+    name: 发布前完整测试
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        working-directory: app_demo
+        run: flutter pub get
+
+      - name: Run Flutter tests
+        working-directory: app_demo
+        run: flutter test --reporter expanded
+
+  # ========== 第二阶段：编译 + 签名 + 公证 macOS ==========
+  build:
+    name: 编译签名公证 macOS 应用
+    needs: test
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        working-directory: app_demo
+        run: flutter pub get
+
+      # ---- 代码签名准备 ----
+      - name: Install Apple certificate
+        env:
+          CERTIFICATE_P12_BASE64: ${{ secrets.CERTIFICATE_P12_BASE64 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          CERTIFICATE_PATH=$RUNNER_TEMP/certificate.p12
+          echo -n "$CERTIFICATE_P12_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+          security import $CERTIFICATE_PATH -P "$CERTIFICATE_PASSWORD" \
+            -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security set-key-partition-list -S apple-tool:,apple: \
+            -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security list-keychains -d user -s $KEYCHAIN_PATH login.keychain-db
+
+      - name: Build macOS release
+        working-directory: app_demo
+        env:
+          CODE_SIGN_IDENTITY: ${{ secrets.CODE_SIGN_IDENTITY }}
+          DEVELOPMENT_TEAM: ${{ secrets.DEVELOPMENT_TEAM }}
+        run: |
+          flutter build macos --release
+
+      - name: Sign the app bundle
+        env:
+          CODE_SIGN_IDENTITY: ${{ secrets.CODE_SIGN_IDENTITY }}
+        run: |
+          APP_PATH="app_demo/build/macos/Build/Products/Release/app_demo.app"
+
+          find "$APP_PATH" -name "*.framework" -o -name "*.dylib" | while read f; do
+            codesign --force --options runtime --sign "$CODE_SIGN_IDENTITY" \
+              --timestamp "$f" || true
+          done
+
+          codesign --force --deep --options runtime \
+            --sign "$CODE_SIGN_IDENTITY" \
+            --timestamp \
+            --entitlements "app_demo/macos/Runner/Release.entitlements" \
+            "$APP_PATH"
+
+          codesign --verify --verbose=2 "$APP_PATH"
+          echo "✅ Code signing complete"
+
+      # ---- 公证 (Notarization) ----
+      - name: Create ZIP for notarization
+        run: |
+          cd app_demo/build/macos/Build/Products/Release
+          ditto -c -k --keepParent "app_demo.app" \
+            "$GITHUB_WORKSPACE/AudioTranslateInput-macOS-${{ github.ref_name }}.zip"
+
+      - name: Submit for notarization
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          xcrun notarytool submit \
+            "AudioTranslateInput-macOS-${{ github.ref_name }}.zip" \
+            --apple-id "$APPLE_ID" \
+            --password "$APPLE_APP_PASSWORD" \
+            --team-id "$APPLE_TEAM_ID" \
+            --wait --timeout 30m
+
+          echo "✅ Notarization complete"
+
+      - name: Staple notarization ticket
+        run: |
+          APP_PATH="app_demo/build/macos/Build/Products/Release/app_demo.app"
+          xcrun stapler staple "$APP_PATH"
+          echo "✅ Stapler complete"
+
+      # ---- 打包 DMG ----
+      - name: Create DMG
+        run: |
+          APP_PATH="app_demo/build/macos/Build/Products/Release/app_demo.app"
+          DMG_NAME="AudioTranslateInput-macOS-${{ github.ref_name }}.dmg"
+
+          DMG_DIR=$RUNNER_TEMP/dmg-contents
+          mkdir -p "$DMG_DIR"
+          cp -R "$APP_PATH" "$DMG_DIR/"
+          ln -s /Applications "$DMG_DIR/Applications"
+
+          hdiutil create -volname "Audio Translate Input" \
+            -srcfolder "$DMG_DIR" \
+            -ov -format UDZO \
+            "$GITHUB_WORKSPACE/$DMG_NAME"
+
+          codesign --sign "${{ secrets.CODE_SIGN_IDENTITY }}" \
+            --timestamp \
+            "$GITHUB_WORKSPACE/$DMG_NAME"
+
+          echo "✅ DMG created: $DMG_NAME"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-build
+          path: |
+            AudioTranslateInput-macOS-${{ github.ref_name }}.dmg
+            AudioTranslateInput-macOS-${{ github.ref_name }}.zip
+
+      # ---- 清理钥匙串 ----
+      - name: Cleanup keychain
+        if: always()
+        run: |
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          security delete-keychain $KEYCHAIN_PATH 2>/dev/null || true
+
+  # ========== 第三阶段：创建 GitHub Release ==========
+  release:
+    name: 发布 GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-build
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Audio Translate Input ${{ github.ref_name }}
+          body: |
+            ## Audio Translate Input ${{ github.ref_name }}
+
+            ### 更新内容
+            _请在此处手动填写本版本的更新日志_
+
+            ### 下载
+            - 📦 macOS DMG: `AudioTranslateInput-macOS-${{ github.ref_name }}.dmg`
+            - 📦 macOS ZIP: `AudioTranslateInput-macOS-${{ github.ref_name }}.zip`
+
+            ### 安全验证
+            ✅ Apple Developer ID 签名
+            ✅ Apple 公证 (Notarization) 通过
+            ✅ Flutter 单元测试通过
+          files: |
+            AudioTranslateInput-macOS-${{ github.ref_name }}.dmg
+            AudioTranslateInput-macOS-${{ github.ref_name }}.zip
+          draft: false
+          prerelease: ${{ contains(github.ref_name, 'beta') || contains(github.ref_name, 'alpha') }}

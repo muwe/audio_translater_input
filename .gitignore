@@ -1,0 +1,35 @@
+# Logs
+*.log
+*.txt
+flutter_run_logs*.txt
+app_demo/flutter_run_logs*.txt
+
+# Claude Code worktrees
+.claude/worktrees/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Environment variables — NEVER commit real keys
+.env
+.env.*
+!.env.example
+
+# Flutter / Dart
+app_demo/.dart_tool/
+app_demo/.flutter-plugins-dependencies
+app_demo/build/
+app_demo/coverage/
+
+# Xcode / CocoaPods
+app_demo/macos/Pods/
+app_demo/macos/.symlinks/
+app_demo/macos/Flutter/ephemeral/
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/

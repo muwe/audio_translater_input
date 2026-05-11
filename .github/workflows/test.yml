@@ -1,0 +1,43 @@
+name: Flutter Tests
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  flutter-tests:
+    name: Flutter 单元 & Widget 测试
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: app_demo
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
+          channel: 'stable'
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test --reporter expanded
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## Flutter 测试结果" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if flutter test --machine 2>/dev/null | tail -1 | grep -q '"success":true'; then
+            echo "✅ 所有测试通过" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ 存在失败的测试，请查看详细日志" >> $GITHUB_STEP_SUMMARY
+          fi

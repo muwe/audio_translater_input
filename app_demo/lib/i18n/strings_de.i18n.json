@@ -1,0 +1,204 @@
+{
+  "status": {
+    "idle": "Drücken Sie Fn zum Aufnehmen",
+    "translating": "🌐 Übersetzen... (Fn loslassen zum Stoppen)",
+    "listening": "🎤 Zuhören... (Fn loslassen zum Stoppen)",
+    "network_disconnected_title": "🔴 Keine Netzwerkverbindung",
+    "network_disconnected_desc": "Bitte überprüfen Sie die Netzwerkverbindung",
+    "network_disconnected_short": "Kein Netzwerk",
+    "accessibility_permission": "Eingabehilfen-Berechtigung zum automatischen Einfügen erforderlich",
+    "mic_permission": "Mikrofon nicht autorisiert",
+    "processing": "✨ Wird verarbeitet...",
+    "paste_success": "✅ Erfolgreich eingefügt",
+    "paste_success_times": "✅ [ASR: ${asrSec}s | LLM: ${llmSec}s]",
+    "mode_recording": "Aufnahme",
+    "mode_translating": "Übersetzen",
+    "recording_failed": "Aufnahme fehlgeschlagen",
+    "no_voice_detected": "Keine Stimme erkannt",
+    "processing_short": "Verarbeiten"
+  },
+  "common": {
+    "min_sec": "${min}m ${sec}s",
+    "hour_min": "${hour}h ${min}m",
+    "n_minutes": "${n} Min.",
+    "n_hours": "${n} Std. ${min} Min."
+  },
+  "locales": {
+    "en": "Englisch",
+    "zhHans": "Vereinfachtes Chinesisch",
+    "zhHant": "Traditionelles Chinesisch",
+    "ja": "Japanisch",
+    "de": "Deutsch",
+    "es": "Spanisch"
+  },
+  "settings": {
+    "title": "App-Einstellungen",
+    "subtitle": "Passen Sie Ihr Tipp-Erlebnis an.",
+    "ui_settings": {
+      "title": "UI-Einstellungen",
+      "app_language": {
+        "title": "App-Sprache",
+        "subtitle": "Ändern Sie die Sprache der gesamten Anwendung"
+      },
+      "font": {
+        "title": "Anzeigeschriftart",
+        "subtitle": "Globale Änderung der Textanzeigeschriftart"
+      }
+    },
+    "system_settings": {
+      "title": "Systemeinstellungen",
+      "startup": {
+        "title": "Beim Start ausführen",
+        "subtitle": "Nach der Anmeldung automatisch im Hintergrund ausführen"
+      },
+      "backend": {
+        "title": "Backend-Knoten",
+        "subtitle": "US Ultra-schneller Knoten (Groq) oder CN-Knoten (SiliconFlow)",
+        "us": "US/Europa",
+        "cn": "China"
+      }
+    },
+    "hotkeys": {
+      "title": "Hotkeys & Auslöser",
+      "refine": {
+        "title": "Verfeinerungsmodus (Umschalten)",
+        "subtitle": "Binden Sie eine globale Umschalttaste"
+      },
+      "translate": {
+        "title": "Übersetzungsmodus (Umschalten)",
+        "subtitle": "Sprechen und sofort in die Zielsprache übersetzen"
+      },
+      "click_to_set": "Klicken zum Einstellen",
+      "cancel": "Abbrechen",
+      "record_title": "${title} Hotkey aufzeichnen",
+      "record_desc": "Drücken Sie die gewünschte Tastenkombination..."
+    },
+    "translation": {
+      "title": "Übersetzungsstrategie",
+      "target_lang": {
+        "title": "Zielsprache",
+        "subtitle": "Standardsprache für die Übersetzung"
+      }
+    },
+    "target_languages": {
+      "en": "Englisch",
+      "ja": "Japanisch",
+      "ko": "Koreanisch",
+      "fr": "Französisch",
+      "de": "Deutsch",
+      "ru": "Russisch",
+      "es": "Spanisch",
+      "it": "Italienisch",
+      "pt": "Portugiesisch",
+      "nl": "Niederländisch",
+      "ar": "Arabisch",
+      "tr": "Türkisch",
+      "sv": "Schwedisch",
+      "hi": "Hindi",
+      "th": "Thailändisch",
+      "vi": "Vietnamesisch",
+      "id": "Indonesisch",
+      "zh_Hans": "Vereinfachtes Chinesisch",
+      "zh_Hant": "Traditionelles Chinesisch"
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "home": "Startseite",
+      "history": "Verlauf",
+      "settings": "Einstellungen"
+    },
+    "home": {
+      "greeting": "Hallo Generator",
+      "subtitle": "Heutiger Fokus bereit",
+      "guide": {
+        "title": "Schnellstartanleitung",
+        "voice_input": {
+          "title": "Fn für Spracheingabe",
+          "desc": "Fn gedrückt halten, sprechen und loslassen."
+        },
+        "realtime_translate": {
+          "title": "Shift + Fn für Übersetzung",
+          "desc": "Shift und Fn für Echtzeit-Übersetzung halten."
+        },
+        "smart_format": {
+          "title": "Smarter Formatierungsassistent",
+          "desc": "Das System merkt sich Ihren Schreibstil."
+        }
+      },
+      "stats": {
+        "focus_performance": "Fokus-Leistung",
+        "hours": "${hours} Stunden",
+        "days": [
+          "Mo",
+          "Di",
+          "Mi",
+          "Do",
+          "Fr",
+          "Sa",
+          "So"
+        ],
+        "goal_reached": "Heutiges Ziel erreicht",
+        "processed_words": "Verarbeitete Wörter ${words}"
+      }
+    },
+    "chars_unit": "Zeichen",
+    "unlimited": "Unbegrenzt"
+  },
+  "history": {
+    "title": "Erstellungsverlauf",
+    "time_saved": "Insgesamt ${time} Tippzeit gespart.",
+    "empty": "Keine Aufzeichnungen vorhanden\nDrücken Sie Fn, um zu beginnen",
+    "mode_translate": "Fremdsprachenübersetzung",
+    "mode_refine": "Muttersprachliche Verfeinerung",
+    "asr_label": "🎙️ Spracherkennung: ",
+    "llm_label": "✨ Smarte Verfeinerung: ",
+    "seconds": "${seconds} Sekunden",
+    "minutes": "${minutes} Minuten",
+    "period": {
+      "today": "Heute",
+      "week": "Diese Woche",
+      "month": "Diesen Monat",
+      "all": "Gesamt"
+    },
+    "kpi": {
+      "usage_time": "Nutzungszeit",
+      "chars": "Zeichen",
+      "time_saved": "Eingesparte Zeit",
+      "requests": "Anfragen",
+      "refine": "Verfeinerungen",
+      "translate": "Übersetzungen"
+    }
+  },
+  "onboarding": {
+    "step1_title": "Natürlich sprechen, perfekt schreiben",
+    "step1_subtitle": "Halten Sie Fn gedrückt zum Aufnehmen\nLoslassen für automatische Verfeinerung und Einfügen",
+    "step1_action": "Weiter",
+    "step2_title": "Mikrofon autorisieren",
+    "step2_action": "Systemberechtigung erteilen",
+    "step3_title": "Bedienungshilfen aktivieren",
+    "step3_subtitle": "Für nahtlose Eingabe\nBitte aktivieren Sie Bedienungshilfen für Audio Translate Input in den Systemeinstellungen",
+    "step3_action": "Systemberechtigung prüfen",
+    "step4_title": "Praxisübung",
+    "step4_subtitle": "Alles bereit! Halten Sie Fn gedrückt und sagen Sie etwas\nErleben Sie eine neue Effizienzrevolution",
+    "step4_action": "Reise beginnen",
+    "skip": "Guide überspringen",
+    "mic_permission_subtitle": "Audio Translate Input benötigt Mikrofonzugriff\num Ihre Stimme in präzisen Text umzuwandeln",
+    "complete_trial": "Test abschließen",
+    "hold_fn_hint": "Halten Sie Fn gedrückt und sagen Sie etwas...",
+    "listening": "Zuhören... (Sprechen Sie frei)",
+    "refining": "Verfeinern...",
+    "trial_success": "Test erfolgreich! Das ist die Magie von Audio Translate Input.",
+    "click_to_simulate": "(Sie können dieses Feld anklicken, um einen Tastendruck zu simulieren)",
+    "accessibility_warning": "Bedienungshilfen-Berechtigung nicht erteilt. Bitte aktivieren Sie Audio Translate Input im angezeigten Systemeinstellungs-Dialog."
+  },
+  "vocab": {
+    "title": "Persönliches Wörterbuch",
+    "subtitle": "Bringe der KI deine bevorzugten Ausdrücke bei",
+    "add_title": "Eigenen Ausdruck hinzufügen",
+    "spoken_hint": "Was du sagst (gesprochene Form)",
+    "written_hint": "Was geschrieben werden soll (Schriftform)",
+    "add_btn": "Hinzufügen",
+    "empty": "Noch keine eigenen Ausdrücke"
+  }
+}
